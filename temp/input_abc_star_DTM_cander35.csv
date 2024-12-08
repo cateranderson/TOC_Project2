@@ -1,0 +1,20 @@
+a*b*c* Deterministic
+q1,q2,q3,q4,qacc,qrej
+a,b,c
+a,b,c_
+q0
+qacc
+qrej
+q0,_,qacc,_,R
+q0,a,q1,a,R
+q0,b,q2,b,R
+q0,c,q3,c,R
+q1,a,q1,a,R
+q1,b,q2,b,R
+q1,c,q3,c,R
+q1,_,qacc,_,R
+q2,b,q2,b,R
+q2,c,q3,c,R
+q2,_,qacc,_,R
+q3,c,q3,c,R
+q3,_,qacc,_,R
