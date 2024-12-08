@@ -11,7 +11,7 @@ class NTM:
         self.load_machine(filename)
 
     def load_machine(self, filename):
-        """Loads the NTM from a .csv file."""
+        """Loads the NTM/DTM configuration from a .csv file."""
         with open(filename, 'r') as file:
             reader = csv.reader(file)
 
@@ -29,6 +29,11 @@ class NTM:
 
             # Read the transitions (state, input, next_state, write_symbol, direction)
             for row in reader:
+                row = row[:5]  # Only process the first 5 values
+                if len(row) != 5:
+                    raise ValueError(
+                        f"Invalid transition format in row: {row}. Expected 5 values."
+                    )
                 current_state, read_symbol, next_state, write_symbol, direction = row
                 self.transitions[(current_state, read_symbol)].append(
                     (next_state, write_symbol, direction)  # Store each transition
